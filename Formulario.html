@@ -13,7 +13,7 @@
 <body>
     <a href="index.php">IR A INICIO!!</a>
     <h1>Formulario</h1>
-    <form action="guardarformulario.php" method="get" enctype='multipart/form-data'>
+    <form action="guardarformulario.php" method="post" enctype='multipart/form-data'>
         <p>Nombre: <input type="text" name="nombre"></p>
         <p>Imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
         <p>Categoria:
@@ -32,8 +32,12 @@
         <label for="segundo">segundoSemestre</label><br>
         <p>Fecha de ingreso: <input type="date" name="fechaIngreso"></p>
         <p>Descripcion: <textarea name="descripcion" rows="5" cols="30"></textarea> </p>
-        <p><input type="submit"></p>
+        <p><input type="submit" name="submit" value="Upload"></p>
     </form>
+
+
+
+
 </body>
 </html>
 

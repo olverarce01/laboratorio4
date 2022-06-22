@@ -23,11 +23,34 @@
     foreach($productos as $producto){
     }
 ?>
+
+
+
+
+
     <h1>Formulario</h1>
-    <form action="actualizar.php" method="get" enctype='multipart/form-data'>
-        <p>ID: <?php echo $producto["id"]?></p>
+    <form action="actualizar.php" method="post" enctype='multipart/form-data'>
+        <p>ID: <input type="number" name="id" value="<?php echo $producto["id"]?>"></p>
         <p>Nombre: <input type="text" name="nombre" value="<?php echo $producto["nombre"]?>"></p>
-        <p>Imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif" value="<?php echo $producto["imagen"]?>"> </p>
+
+        <?php 
+ 
+            // Get image data from database 
+            $result = $conn->query("SELECT imagen FROM basededatoslab4.producto WHERE id=$id"); 
+            ?>
+
+            <?php if($result->num_rows > 0){ ?> 
+                <div class="gallery"> 
+                    <?php while($row = $result->fetch_assoc()){ ?> 
+                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['imagen']); ?>" /> 
+                    <?php } ?> 
+                </div> 
+            <?php }else{ ?> 
+                <p class="status error">Image(s) not found...</p> 
+            <?php } ?>
+
+
+        <p>Imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
         <p>Categoria:
             <select id="idcategoria" name="categoria">
                 <option value="basico" <?php if($producto["categoria"]=="basico") echo 'selected="true"';?>>Basica</option>
@@ -54,7 +77,7 @@
 
         <p>Fecha de ingreso: <input type="date" name="fechaIngreso" value="<?php echo $producto["fechaIngreso"]?>"></p>
         <p>Descripcion: <textarea name="descripcion" rows="5" cols="30"><?php echo $producto["descripcion"]?></textarea> </p>
-        <p><input type="submit"></p>
+        <p><input type="submit" name="submit" value="Upload"></p>
     </form>
 </body>
 </html>

@@ -20,7 +20,7 @@ $productos = $conn->query($sql);
 echo "<h3>Alumnos de Tecnologias Web </h3>";
 
 foreach($productos as $producto){
-    echo "<p> id: " . $producto["id"] . "imagen: " . $producto["imagen"] ."</p>";
+    echo "<p> id: " . $producto["id"] ."</p>";
     echo "<button><a href='delete.php?id=".$producto["id"]."'>eliminar</a></button>";
     echo "<button><a href='editar.php?id=".$producto["id"]."'>editar</a></button>";
     echo "<button><a href='ver.php?id=".$producto["id"]."'>ver</a></button>";
