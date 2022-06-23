@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos, css, bootstrap -->
     <link Type="text/css" rel="stylesheet" href="./css/bootstrap.min.css">
-    <link Type="text/css" rel="stylesheet" href="./css/estilos.css">
+    <link Type="text/css" rel="stylesheet" href="./css/formulario.css">
     <!-- Formulario para la base de datos -->
-    <title>Lab 4 - Formulario</title>
+    <title>CrearCurso</title>
 </head>
 <body>
-    <a href="index.php">IR A INICIO!!</a>
-    <h1>Formulario</h1>
+    <header><a href="index.php"><button>Inicio</button></a>
+    </header>
+    <h1>Crear curso</h1>
     <form action="guardarformulario.php" method="post" enctype='multipart/form-data'>
-        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>Nombre: <input type="text" name="nombre" placeholder="Nombre" required></p>
         <p>Imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
         <p>Categoria:
             <select id="idcategoria" name="categoria">
@@ -26,13 +27,13 @@
         </p>
         <p>Precio: <input type="number" name="precio"></p>
         <p>Temporada:</p>
-        <input type="radio" id="html" name="temporada" value="primerSemestre">
+        <input type="radio" id="html" name="temporada" value="primerSemestre" checked>
         <label for="primer">primerSemestre</label><br>
         <input type="radio" id="css" name="temporada" value="segundoSemestre">
         <label for="segundo">segundoSemestre</label><br>
         <p>Fecha de ingreso: <input type="date" name="fechaIngreso"></p>
         <p>Descripcion: <textarea name="descripcion" rows="5" cols="30"></textarea> </p>
-        <p><input type="submit" name="submit" value="Upload"></p>
+        <p><input type="submit" name="submit" value="Crear"></p>
     </form>
 
 

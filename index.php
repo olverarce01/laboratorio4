@@ -3,30 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="./css/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
 </head>
 <body>
-    <a href="index.php">IR A INICIO!!</a>
-    <button><a href="./Formulario.html">Agregar producto</a></button>
-    <?php
 
+    <header><a href="index.php"><button>Inicio</button></a>
+        <a href="./Formulario.html"><button>Agregar curso</button></a>
+    </header>
+<?php
 include "conexion.php";
-
 $sql = "SELECT id, nombre, imagen, precio, categoria, temporada, fechaIngreso, descripcion FROM basededatoslab4.producto";
 $productos = $conn->query($sql);
-
-echo "<h3>Alumnos de Tecnologias Web </h3>";
-
-foreach($productos as $producto){
-    echo "<p> id: " . $producto["id"] ."</p>";
-    echo "<button><a href='delete.php?id=".$producto["id"]."'>eliminar</a></button>";
-    echo "<button><a href='editar.php?id=".$producto["id"]."'>editar</a></button>";
-    echo "<button><a href='ver.php?id=".$producto["id"]."'>ver</a></button>";
-}
+echo "<h1>Cursos de programación web</h1>";
 ?>
 
+
+<table class="default" cellspacing="0" cellpadding="0">
+    <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>PRECIO</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+<?php
+foreach($productos as $producto){
+    echo '
+    <tr>
+        <td>'.$producto["id"].'</td>
+        <td>'.$producto["nombre"].'</td>
+        <td>'.$producto["precio"].'</td>
+        <td><button><a href="delete.php?id='.$producto["id"].'">Eliminar</a></button></td>
+        <td><button><a href="editar.php?id='.$producto["id"].'">Editar</a></button></td>
+        <td><button><a href="ver.php?id='.$producto["id"].'">Ver</a></button></td>
+        
+    </tr>';
+
+}
+?>
+</table>
 
 
 

@@ -1,0 +1,53 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+header{
+	background: lightcoral;
+	display: flex;
+	justify-content: space-between;
+}
+body{
+	background: lightslategray;
+}
+button{
+	background: lightblue;
+	border: none;
+	padding: 10px 20px;
+	margin: 10px;
+	cursor: pointer;
+	color: black;
+	border-radius: 7px;
+
+	transition: 0.3s all;
+}
+button:hover{
+	background: white;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+h1{
+	text-align: center;
+	font-size: 40px;
+	font-family: sans-serif;
+	color: white;
+}
+table{
+	background: white;
+	border: none;
+	margin: 20px auto;
+	font-size: 20px;
+	font-family: monospace;
+	text-align: center;
+}
+table th{
+	background: lightsalmon;
+	padding: 0 10px;
+}
+table td{
+	background: white;
+	padding: 0 10px;
+}

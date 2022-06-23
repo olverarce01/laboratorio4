@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos, css, bootstrap -->
     <link Type="text/css" rel="stylesheet" href="./css/bootstrap.min.css">
-    <link Type="text/css" rel="stylesheet" href="./css/estilos.css">
+    <link Type="text/css" rel="stylesheet" href="./css/formulario.css">
     <!-- Formulario para la base de datos -->
     <title>Lab 4 - Formulario</title>
 </head>
 <body>
 
-<a href="index.php">IR A INICIO!!</a>
-
+<header><a href="index.php"><button>Inicio</button></a>
+    </header>
 
 <?php
     include "conexion.php";
@@ -77,7 +77,7 @@
 
         <p>Fecha de ingreso: <input type="date" name="fechaIngreso" value="<?php echo $producto["fechaIngreso"]?>"></p>
         <p>Descripcion: <textarea name="descripcion" rows="5" cols="30"><?php echo $producto["descripcion"]?></textarea> </p>
-        <p><input type="submit" name="submit" value="Upload"></p>
+        <p><input type="submit" name="submit" value="Actualizar"></p>
     </form>
 </body>
 </html>

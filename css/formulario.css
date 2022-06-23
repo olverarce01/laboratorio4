@@ -1,0 +1,56 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+header{
+	background: lightcoral;
+	display: flex;
+	justify-content: space-between;
+}
+body{
+	background: lightslategray;
+}
+button{
+	background: lightblue;
+	border: none;
+	padding: 10px 20px;
+	margin: 10px;
+	cursor: pointer;
+	color: black;
+	border-radius: 7px;
+
+	transition: 0.3s all;
+}
+button:hover{
+	background: white;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+h1{
+	text-align: center;
+	font-size: 40px;
+	font-family: sans-serif;
+	color: white;
+}
+form{
+	background: lightgray;
+	margin: 10px 20px;
+	border-radius: 5px;
+	padding: 10px 30px;
+}
+input{
+	color: black;
+}
+textarea{
+	color: black;
+}
+select{
+	color: black;
+}
+p{
+	font-family: monospace;
+	font-weight: bold;
+}
