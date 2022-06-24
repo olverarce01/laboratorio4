@@ -30,7 +30,7 @@
     <!-- Uso de php para imprimir datos y remplazar datos sql -->
     <br><div class= center-h1> <h1 class="color-h1">Editando el curso</h1> </div> <br>
     <form action="actualizar.php" method="post" enctype='multipart/form-data'>
-        <p>ID: <input type="number" name="id" value="<?php echo $producto["id"]?>" disabled="true"></p>
+        <p>ID: <input type="number" name="id" value="<?php echo $producto["id"]?>" readonly='readonly'></p>
         <p>Nombre del curso: <input type="text" name="nombre" value="<?php echo $producto["nombre"]?>"></p>
         <p>Imagen:</p>
         <?php 

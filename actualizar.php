@@ -31,7 +31,7 @@
                     $image = $_FILES['imagen']['tmp_name']; 
                     $imgContent = addslashes(file_get_contents($image)); 
                     $fecha_ingreso = date("Y/m/d", strtotime($_POST['fechaIngreso']) );
-                    $sql = "UPDATE basededatoslab4.producto SET nombre='$_POST[nombre]', imagen='$imgContent', precio='$_POST[precio]', categoria='$_POST[categoria]', temporada='$_POST[temporada]', fechaIngreso='$fecha_ingreso', descripcion='$_POST[descripcion]' WHERE id=$_POST[id]";
+                    $sql = "UPDATE basededatoslab4.producto SET nombre='$_POST[nombre]', imagen='$imgContent', precio='$_POST[precio]', categoria='$_POST[categoria]', temporada='$_POST[temporada]', fechaIngreso='$fecha_ingreso', descripcion='$_POST[descripcion]' WHERE id='$_POST[id]'";
                     
                 }else{ 
                     $statusMsg = 'Lo siento, solo archivos JPG, JPEG, PNG, & GIF son permitidas para agregar al registro.'; 
