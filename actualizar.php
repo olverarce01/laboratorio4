@@ -16,7 +16,7 @@
     <br><br>
     <?php
     include "conexion.php";
-        // Si el arachivo es subido
+        // Si el archivo es subido
         $status = $statusMsg = ''; 
         if(isset($_POST["submit"])){ 
             $status = 'error'; 
