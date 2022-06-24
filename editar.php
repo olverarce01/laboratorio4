@@ -7,14 +7,17 @@
     <!-- Estilos, css, bootstrap -->
     <link Type="text/css" rel="stylesheet" href="./css/bootstrap.min.css">
     <link Type="text/css" rel="stylesheet" href="./css/formulario.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" href="favicon.ico">
     <!-- Formulario para la base de datos -->
-    <title>Lab 4 - Formulario</title>
+    <title>Lab 4 - Editar</title>
 </head>
 <body>
-
-<header><a href="index.php"><button>Inicio</button></a>
+    <header class="no-border-side navbar navbar-expand-md rounded-lg" >
+        <a href="index.php"><button>Inicio</button></a>
+        <h1> Class-lilac </h1>
+        <a href="./Formulario.html"><button>Agregar curso</button></a>
     </header>
-
 <?php
     include "conexion.php";
     $id = $_GET['id'];
@@ -28,11 +31,11 @@
 
 
 
-    <h1>Formulario</h1>
+    <br><h1 class="color-h1">Editando el curso</h1><br>
     <form action="actualizar.php" method="post" enctype='multipart/form-data'>
         <p>ID: <input type="number" name="id" value="<?php echo $producto["id"]?>"></p>
-        <p>Nombre: <input type="text" name="nombre" value="<?php echo $producto["nombre"]?>"></p>
-
+        <p>Nombre del curso: <input type="text" name="nombre" value="<?php echo $producto["nombre"]?>"></p>
+        <p>Imagen:</p>
         <?php 
  
             // Get image data from database 
@@ -50,7 +53,7 @@
             <?php } ?>
 
 
-        <p>Imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
+        <p>Cambiar imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
         <p>Categoria:
             <select id="idcategoria" name="categoria">
                 <option value="basico" <?php if($producto["categoria"]=="basico") echo 'selected="true"';?>>Basica</option>
@@ -59,25 +62,25 @@
             </select>
 
         </p>
-        <p>Precio: <input type="number" name="precio" value="<?php echo $producto["precio"]?>"></p>
+        <p>Precio del curso: <input type="number" name="precio" value="<?php echo $producto["precio"]?>"></p>
         <p>Temporada:</p>
 
         <?php 
         if($producto["temporada"]=="primerSemestre"){
             echo '<input type="radio" id="html" name="temporada" value="primerSemestre" checked >';
         }else {echo '<input type="radio" id="html" name="temporada" value="primerSemestre" >';}
-        echo '<label for="primer">primerSemestre</label><br>';
+        echo '<label for="primer">Primer semestre</label><br>';
         if($producto["temporada"]=="segundoSemestre"){
             echo '<input type="radio" id="css" name="temporada" value="segundoSemestre" checked> ';
         }else {echo '<input type="radio" id="css" name="temporada" value="segundoSemestre">';}
-        echo '<label for="segundo">segundoSemestre</label><br>';
+        echo '<label for="segundo">Segundo Semestre</label><br>';
         ?>
 
 
 
         <p>Fecha de ingreso: <input type="date" name="fechaIngreso" value="<?php echo $producto["fechaIngreso"]?>"></p>
         <p>Descripcion: <textarea name="descripcion" rows="5" cols="30"><?php echo $producto["descripcion"]?></textarea> </p>
-        <p><input type="submit" name="submit" value="Actualizar"></p>
+        <p><input type="submit" class="btn btn-primary" name="submit" value="Actualizar"></p>
     </form>
 </body>
 </html>

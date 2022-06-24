@@ -4,30 +4,44 @@
 	box-sizing: border-box;
 }
 header{
-	background: lightcoral;
-	display: flex;
-	justify-content: space-between;
+	background: #cca9dd !important;
+	display: flex !important;
+	justify-content: space-between !important;
+	border-bottom: 4px solid whitesmoke;
+	opacity: 0.9;
 }
 body{
-	background: lightslategray;
+    background-size: cover;
+    /* background-repeat: no-repeat;
+    background-position: center; */
+
+    /* background-image: url(../Image/header.webp), url(../Image/header.jpg); */
+    background-image: url(../img/fondo.jpg);
+    background-color: transparent;
 }
 button{
-	background: lightblue;
-	border: none;
-	padding: 10px 20px;
-	margin: 10px;
-	cursor: pointer;
-	color: black;
-	border-radius: 7px;
+	/* background: lightblue; */
+	border: none !important;
+	padding: 10px 20px !important;
+	margin: 10px !important;
+	cursor: pointer !important;
+	color: black !important;
+	border-radius: 7px !important;
 
-	transition: 0.3s all;
+	transition: 0.3s all !important;
 }
 button:hover{
 	background: white;
 }
+
 a{
-	text-decoration: none;
+	text-decoration: none !important;
 	color: black;
+
+}
+a:hover{
+	font-weight: bold !important;
+	color:black !important;
 }
 h1{
 	text-align: center;
@@ -36,7 +50,7 @@ h1{
 	color: white;
 }
 table{
-	background: white;
+	/* background: #44cbab; */
 	border: none;
 	margin: 20px auto;
 	font-size: 20px;
@@ -44,10 +58,39 @@ table{
 	text-align: center;
 }
 table th{
-	background: lightsalmon;
+	background: #007bff;
 	padding: 0 10px;
+	border: 4px solid black !important;
 }
 table td{
-	background: white;
+	background: #9ba1e6;
 	padding: 0 10px;
+	border: 4px solid black !important;
+}
+.no-border-side{
+	border-right: 0 !important;
+	border-left: 0 !important;
+}
+.border-last-right{
+	border: 4px solid black !important;
+}
+.color-h1{
+	color: black;
+}
+form{
+	background: #9ba1e6;
+	margin: 10px 20px;
+	border-radius: 5px;
+	padding: 10px 30px;
+	opacity: 0.8;
+}
+textarea{
+	color: black;
+}
+.gallery{
+	background-color: #cca9dd !important;
+	opacity: 0.9;
+	background-size: 60px;
+	align-items: center;
+	text-align: center;
 }
