@@ -20,7 +20,7 @@ body{
     background-color: transparent;
 }
 button{
-	/* background: lightblue; */
+	background: lightblue; 
 	border: none !important;
 	padding: 10px 20px !important;
 	margin: 10px !important;
@@ -76,6 +76,10 @@ table td{
 }
 .color-h1{
 	color: black;
+	background-color: #9ba1e6;
+	display: inline-block;
+	text-align: center;
+	border: 4px solid whitesmoke;
 }
 form{
 	background: #9ba1e6;
@@ -92,5 +96,8 @@ textarea{
 	opacity: 0.9;
 	background-size: 60px;
 	align-items: center;
+	text-align: center;
+}
+.center-h1{
 	text-align: center;
 }

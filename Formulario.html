@@ -10,16 +10,17 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="icon" href="favicon.ico">
     <!-- Formulario para la base de datos -->
-    <title>CrearCurso</title>
+    <title>Class-lilac - Formulario</title>
 </head>
 <body>
+    <!-- Header de la pagina --> 
     <header class="no-border-side navbar navbar-expand-md rounded-lg" >
         <a href="index.php"><button>Inicio</button></a>
         <h1> Class-lilac</h1>
         <a href="./Formulario.html"><button>Agregar curso</button></a>
     </header>
 
-    <br><h1 class="color-h1">Agregando curso</h1>
+    <br><div class="center-h1"><h1 class="color-h1">Agregando curso</h1></div><br>
     <!-- <form action="guardarformulario.php" method="post" enctype='multipart/form-data'>
         <p>Nombre: <input type="text" name="nombre" placeholder="Nombre" required></p>
         <p>Imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
@@ -41,31 +42,22 @@
         <p>Descripcion: <textarea name="descripcion" rows="5" cols="30"></textarea> </p>
         <p><input type="submit" name="submit" value="Crear"></p>
     </form> -->
-    <!-- formulario con bootstrap -->
 
+    <!-- formulario con bootstrap -->
     <div class="main" role="main" style="background-color: transparent ">
         <div class="formulario py-4 my-3 mx-2 px-4 rounded-lg">
-
             <form action="guardarformulario.php" method="post" enctype='multipart/form-data'>
-
-
-
                 <div class="form-row">
-  
                     <div class="col-md-12 mb-3">
                         <label>Nombre del curso</label>
                         <input type="text" name="nombre" class="form-control w-50" placeholder="Nombre" value="" required>
                     </div>
-  
                 </div>
-
                 <div class="form-row">
-
                     <div class="col-md-12 mb-3">
                       <label>Imagen (opcional)</label>
                       <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"  class="form-control w-50" placeholder="Imagen">                   
                     </div>
-  
                     <div class="col-md-12 mb-3">
                         <label for>Categoria</label>
                         <select id="idcategoria" name="categoria">
@@ -74,16 +66,12 @@
                             <option value="avanzado">Avanzada</option>
                         </select>
                     </div>
-  
                 </div>
-
                 <div class="form-row">
-
                     <div class="col-md-12 mb-3">
                       <label>Precio del curso</label>
                       <input type="number" name="precio" class="form-control w-50" placeholder="Precio" value="" required>
                     </div>
-  
                     <div class="col-md-12 mb-3">
                         <label>Temporada</label>
                         <br>
@@ -91,44 +79,24 @@
                         <label for="primer">Primer semestre</label><br>
                         <input type="radio" id="css" name="temporada" value="segundoSemestre">
                         <label for="segundo">Segundo semestre</label><br>
-  
-                        <div class="valid-feedback">
-                          Looks good!
-                        </div>
                     </div>
-  
                 </div>
-
-
                 <div class="form-row">
-
                     <div class="col-md-12 mb-3">
                       <label>Fecha de ingreso del curso</label>
                       <input type="date" name="fechaIngreso" class="form-control w-50" placeholder="Fecha de ingreso" value="" required>
-                      
                     </div>
-  
                     <div class="col-md-12 mb-3">
                         <label>Descripcion</label>
                         <textarea name="descripcion" rows="5" cols="30"></textarea>
                     </div>
-  
                 </div>
-
                 <p><input type="submit" class="btn btn-primary" name="submit" value="Crear"></p>
-
                 <br>
                 <br>
-
             </form>
-
         </div>
     </div>
-
-</body>
-
-
-
 </body>
 </html>
 

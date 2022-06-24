@@ -9,15 +9,17 @@
     <link Type="text/css" rel="stylesheet" href="./css/formulario.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="icon" href="favicon.ico">
-    <!-- Formulario para la base de datos -->
-    <title>Lab 4 - Editar</title>
+    <!-- Titulo de la pagina -->
+    <title>Class-lilac - Editando curso</title>
 </head>
 <body>
+    <!-- Header de la pagina -->
     <header class="no-border-side navbar navbar-expand-md rounded-lg" >
         <a href="index.php"><button>Inicio</button></a>
         <h1> Class-lilac </h1>
         <a href="./Formulario.html"><button>Agregar curso</button></a>
     </header>
+    <!-- Inicio de implementacion de php para recibir datos sql que tengan igual id recibido -->
 <?php
     include "conexion.php";
     $id = $_GET['id'];
@@ -26,22 +28,16 @@
     foreach($productos as $producto){
     }
 ?>
-
-
-
-
-
-    <br><h1 class="color-h1">Editando el curso</h1><br>
+    <!-- Uso de php para imprimir datos y remplazar datos sql -->
+    <br><div class= center-h1> <h1 class="color-h1">Editando el curso</h1> </div> <br>
     <form action="actualizar.php" method="post" enctype='multipart/form-data'>
         <p>ID: <input type="number" name="id" value="<?php echo $producto["id"]?>"></p>
         <p>Nombre del curso: <input type="text" name="nombre" value="<?php echo $producto["nombre"]?>"></p>
         <p>Imagen:</p>
         <?php 
- 
-            // Get image data from database 
+            // Conseguir imagen en la base de datos
             $result = $conn->query("SELECT imagen FROM basededatoslab4.producto WHERE id=$id"); 
             ?>
-
             <?php if($result->num_rows > 0){ ?> 
                 <div class="gallery"> 
                     <?php while($row = $result->fetch_assoc()){ ?> 
@@ -51,8 +47,6 @@
             <?php }else{ ?> 
                 <p class="status error">Image(s) not found...</p> 
             <?php } ?>
-
-
         <p>Cambiar imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
         <p>Categoria:
             <select id="idcategoria" name="categoria">
@@ -60,11 +54,9 @@
                 <option value="intermedio" <?php if($producto["categoria"]=="intermedio") echo 'selected="true"';?>>Intermedia</option>
                 <option value="avanzado" <?php if($producto["categoria"]=="avanzado") echo 'selected="true"';?>>Avanzada</option>
             </select>
-
         </p>
         <p>Precio del curso: <input type="number" name="precio" value="<?php echo $producto["precio"]?>"></p>
         <p>Temporada:</p>
-
         <?php 
         if($producto["temporada"]=="primerSemestre"){
             echo '<input type="radio" id="html" name="temporada" value="primerSemestre" checked >';
@@ -75,9 +67,6 @@
         }else {echo '<input type="radio" id="css" name="temporada" value="segundoSemestre">';}
         echo '<label for="segundo">Segundo Semestre</label><br>';
         ?>
-
-
-
         <p>Fecha de ingreso: <input type="date" name="fechaIngreso" value="<?php echo $producto["fechaIngreso"]?>"></p>
         <p>Descripcion: <textarea name="descripcion" rows="5" cols="30"><?php echo $producto["descripcion"]?></textarea> </p>
         <p><input type="submit" class="btn btn-primary" name="submit" value="Actualizar"></p>

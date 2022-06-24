@@ -8,24 +8,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="icon" href="favicon.ico">
-    <title>Inicio - Laboratorio 4</title>
+    <!-- Titulo de la pagina -->
+    <title>Class-lilac - Inicio</title>
 </head>
 <body>
+    <!-- Header de la pagina -->
     <header class="no-border-side navbar navbar-expand-md rounded-lg" >
         <a href="index.php"><button>Inicio</button></a>
         <h1> Class-lilac </h1>
         <a href="./Formulario.html"><button>Agregar curso</button></a>
     </header>
-<!-- Inicio de implementacion de php -->
+<!-- Inicio de implementacion de php para recibir datos sql -->
 <?php
     // Unir conexion mysql
     include "conexion.php";
     $sql = "SELECT id, nombre, imagen, precio, categoria, temporada, fechaIngreso, descripcion FROM basededatoslab4.producto";
     $productos = $conn->query($sql);
-    echo ' <br><h1 class="color-h1">Cursos de programación web</h1><br> ';
+    echo ' <br><div class= center-h1> <h1 class="color-h1">Cursos de programación web</h1> </div> <br> ';
 ?>
 
-
+<!-- Tabla que contiene los registros actuales de la base de datos, sin incluir imagen y descripcion -->
 <table class="table table-stripedbg-info text-center w-75 mx-auto table-bordered border-last-right" cellspacing="0" cellpadding="0">
     <tr>
         <th>ID</th>
@@ -36,6 +38,7 @@
         <th>FECHA</th>
         <th colspan="3">OPCIONES</th>
     </tr>
+<!-- Implementacion php para imprimir datos sql en la tabla con botones ver, editar y eliminar -->
 <?php
 foreach($productos as $producto){
     echo '
@@ -54,9 +57,5 @@ foreach($productos as $producto){
 }
 ?>
 </table>
-
-
-
-
 </body>
 </html>
