@@ -30,22 +30,30 @@
     <!-- Uso de php para imprimir datos y remplazar datos sql -->
     <br><div class= center-h1> <h1 class="color-h1">Editando el curso</h1> </div> <br>
     <form action="actualizar.php" method="post" enctype='multipart/form-data'>
-        <p>ID: <input type="number" name="id" value="<?php echo $producto["id"]?>"></p>
+        <p>ID: <input type="number" name="id" value="<?php echo $producto["id"]?>" disabled="true"></p>
         <p>Nombre del curso: <input type="text" name="nombre" value="<?php echo $producto["nombre"]?>"></p>
         <p>Imagen:</p>
         <?php 
             // Conseguir imagen en la base de datos
             $result = $conn->query("SELECT imagen FROM basededatoslab4.producto WHERE id=$id"); 
-            ?>
-            <?php if($result->num_rows > 0){ ?> 
-                <div class="gallery"> 
-                    <?php while($row = $result->fetch_assoc()){ ?> 
-                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['imagen']); ?>" /> 
-                    <?php } ?> 
-                </div> 
-            <?php }else{ ?> 
-                <p class="status error">Imagen no encontrada..</p> 
-            <?php } ?>
+            
+            
+            if($result->num_rows >0){
+                echo ' <div class="gallery">';
+                while($row = $result->fetch_assoc()){
+                    if($row["imagen"]!="NULL"){
+                        echo '<img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['imagen']).'" width="500px"/>'; 
+                    }
+                }
+                echo '</div>';
+            }else{
+                echo '<p class="status error">Imagen no encontrada..</p>';
+            }
+        ?>
+            
+
+
+
         <p>Cambiar imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
         <p>Categoria:
             <select id="idcategoria" name="categoria">
@@ -54,7 +62,7 @@
                 <option value="avanzado" <?php if($producto["categoria"]=="avanzado") echo 'selected="true"';?>>Avanzada</option>
             </select>
         </p>
-        <p>Precio del curso: <input type="number" name="precio" value="<?php echo $producto["precio"]?>"></p>
+        <p>Precio del curso: <input type="number" name="precio" min="0" value="<?php echo $producto["precio"]?>"></p>
         <p>Temporada:</p>
         <?php 
         if($producto["temporada"]=="primerSemestre"){

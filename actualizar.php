@@ -32,18 +32,20 @@
                     $imgContent = addslashes(file_get_contents($image)); 
                     $fecha_ingreso = date("Y/m/d", strtotime($_POST['fechaIngreso']) );
                     $sql = "UPDATE basededatoslab4.producto SET nombre='$_POST[nombre]', imagen='$imgContent', precio='$_POST[precio]', categoria='$_POST[categoria]', temporada='$_POST[temporada]', fechaIngreso='$fecha_ingreso', descripcion='$_POST[descripcion]' WHERE id=$_POST[id]";
-                    if ($conn->query($sql) === TRUE){
-                        echo  '<br><div class= center-h1> <h1 class="color-h1"> Registro agregado satisfactoriamente </h1> </div> <br> ';
-                    }else{
-                        echo "Error: ". $sql . "<br>" . $conn->error;
-                    }
-                    $conn->close();
+                    
                 }else{ 
                     $statusMsg = 'Lo siento, solo archivos JPG, JPEG, PNG, & GIF son permitidas para agregar al registro.'; 
                 } 
             }else{ 
-                $statusMsg = 'Porfavor selecciona una imagen para adjuntar'; 
+                $fecha_ingreso = date("Y/m/d", strtotime($_POST['fechaIngreso']) );
+                $sql = "UPDATE basededatoslab4.producto SET nombre='$_POST[nombre]', precio='$_POST[precio]', categoria='$_POST[categoria]', temporada='$_POST[temporada]', fechaIngreso='$fecha_ingreso', descripcion='$_POST[descripcion]' WHERE id=$_POST[id]";    
             } 
+            if ($conn->query($sql) === TRUE){
+                echo  '<br><div class= center-h1> <h1 class="color-h1"> Registro actualizado satisfactoriamente </h1> </div> <br> ';
+            }else{
+                echo "Error: ". $sql . "<br>" . $conn->error;
+            }
+            $conn->close();
         }   
         // Mensaje
         echo $statusMsg;

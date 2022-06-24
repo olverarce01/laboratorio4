@@ -34,18 +34,23 @@
                     $fecha_ingreso = date("Y/m/d", strtotime($_POST['fechaIngreso']) );
                     $sql = "INSERT INTO basededatoslab4.producto (id, nombre, imagen, precio, categoria, temporada, fechaIngreso, descripcion)
                     VALUES ( '', '$_POST[nombre]', '$imgContent', '$_POST[precio]', '$_POST[categoria]', '$_POST[temporada]', '$fecha_ingreso' , '$_POST[descripcion]' ) ";
-                    if ($conn->query($sql) === TRUE){
-                        echo '<br><div class= center-h1> <h1 class="color-h1"> Registro agregado satisfactoriamente </h1> </div> <br> ';
-                    }else{
-                        echo "Error: ". $sql . "<br>" . $conn->error;
-                    }
-                    $conn->close();
+                  
                 }else{ 
                     $statusMsg = 'Lo siento, solo archivos JPG, JPEG, PNG, & GIF son permitidas para agregar al registro.'; 
                 } 
             }else{ 
-                $statusMsg = 'Porfavor selecciona una imagen para adjuntar'; 
+                $fecha_ingreso = date("Y/m/d", strtotime($_POST['fechaIngreso']) );
+                $sql = "INSERT INTO basededatoslab4.producto (id, nombre, imagen, precio, categoria, temporada, fechaIngreso, descripcion)
+                VALUES ( '', '$_POST[nombre]', 'NULL', '$_POST[precio]', '$_POST[categoria]', '$_POST[temporada]', '$fecha_ingreso' , '$_POST[descripcion]' ) ";
+
             } 
+            
+            if ($conn->query($sql) === TRUE){
+                echo '<br><div class= center-h1> <h1 class="color-h1"> Registro agregado satisfactoriamente </h1> </div> <br> ';
+            }else{
+                echo "Error: ". $sql . "<br>" . $conn->error;
+            }
+            $conn->close();
         } 
         // Mensaje
         echo $statusMsg; 

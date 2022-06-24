@@ -48,9 +48,11 @@ foreach($productos as $producto){
         <td>'.$producto["categoria"].'</td>
         <td>'.$producto["temporada"].'</td>
         <td>'.$producto["fechaIngreso"].'</td>
-        <td class ="no-border-side m-0 pl-0 pr-0"><button class="btn btn-danger button"><a href="delete.php?id='.$producto["id"].'">Eliminar</a></button></td>
-        <td class ="no-border-side m-0 pl-0 pr-0"><button class="btn btn-warning button"><a href="editar.php?id='.$producto["id"].'">Editar</a></button></td>
-        <td class ="no-border-side m-0 pl-0 pr-0"><button class="btn btn-success button"><a href="ver.php?id='.$producto["id"].'">Ver</a></button></td>
+        <td class ="no-border-side m-0 pl-0 pr-0"><a href="delete.php?id='.$producto["id"].'"><button class="btn btn-danger button">Eliminar</button></a></td>
+        <td class ="no-border-side m-0 pl-0 pr-0"><a href="editar.php?id='.$producto["id"].'"><button class="btn btn-warning button">Editar</button></a></td>
+        <td class ="no-border-side m-0 pl-0 pr-0"><a href="ver.php?id='.$producto["id"].'"><button class="btn btn-success button">Ver</button></a></td>
+
+
         
     </tr>';
 }

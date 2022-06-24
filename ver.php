@@ -62,16 +62,22 @@
     ?>
     <!-- Imprimir vista imagen aparte -->
     <div>
-    <?php if($result->num_rows > 0){ ?> 
-        <div class="gallery">
-            <p style="color:black; font-size: 35px; font-weight: bold;"> Imagen: </p>
-            <?php while($row = $result->fetch_assoc()){ ?> 
-                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['imagen']); ?>" /> 
-            <?php } ?> 
-        </div> 
-    <?php }else{ ?> 
-        <p class="status error">Imagen no encontrada..</p> 
-    <?php } ?>
+
+
+    <?php
+        if($result->num_rows >0){
+            echo ' <div class="gallery">';
+            while($row = $result->fetch_assoc()){
+                if($row["imagen"]!="NULL"){
+                    echo '<img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['imagen']).'" width="500px"/>'; 
+                }
+            }
+            echo '</div>';
+        }else{
+            echo '<p class="status error">Imagen no encontrada..</p>';
+        }
+    ?>
+
     </div>
 </body>
 </html>
