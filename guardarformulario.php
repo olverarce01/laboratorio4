@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Estilos, css, bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/index.css">
+  <link Type="text/css" rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/estilos.css">
   <link rel="icon" href="favicon.ico">
   <!-- Titulo de la pagina -->
   <title>Class-lilac - Guardado</title>
@@ -17,7 +17,7 @@
     <!-- Implementacion de php para guardar los datos y la imagen -->
     <?php
     include "conexion.php";
-        // Si el arachivo es subido
+        // Si el archivo es subido
         $status = $statusMsg = ''; 
         if(isset($_POST["submit"])){ 
             $status = 'error'; 
@@ -31,16 +31,6 @@
                 if(in_array($fileType, $allowTypes)){ 
                     $image = $_FILES['imagen']['tmp_name']; 
                     $imgContent = addslashes(file_get_contents($image)); 
-                
-                    // Insert image content into database 
-                    //$insert = $db->query("INSERT into images (image, created) VALUES ('$imgContent', NOW())"); 
-                    
-                    // if($insert){ 
-                    //     $status = 'success'; 
-                    //     $statusMsg = "File uploaded successfully."; 
-                    // }else{ 
-                    //     $statusMsg = "File upload failed, please try again."; 
-                    // }
                     $fecha_ingreso = date("Y/m/d", strtotime($_POST['fechaIngreso']) );
                     $sql = "INSERT INTO basededatoslab4.producto (id, nombre, imagen, precio, categoria, temporada, fechaIngreso, descripcion)
                     VALUES ( '', '$_POST[nombre]', '$imgContent', '$_POST[precio]', '$_POST[categoria]', '$_POST[temporada]', '$fecha_ingreso' , '$_POST[descripcion]' ) ";
@@ -51,10 +41,10 @@
                     }
                     $conn->close();
                 }else{ 
-                    $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+                    $statusMsg = 'Lo siento, solo archivos JPG, JPEG, PNG, & GIF son permitidas para agregar al registro.'; 
                 } 
             }else{ 
-                $statusMsg = 'Please select an image file to upload.'; 
+                $statusMsg = 'Porfavor selecciona una imagen para adjuntar'; 
             } 
         } 
         // Mensaje

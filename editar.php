@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos, css, bootstrap -->
     <link Type="text/css" rel="stylesheet" href="./css/bootstrap.min.css">
-    <link Type="text/css" rel="stylesheet" href="./css/formulario.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/estilos.css">
     <link rel="icon" href="favicon.ico">
     <!-- Titulo de la pagina -->
     <title>Class-lilac - Editando curso</title>
@@ -20,14 +19,14 @@
         <a href="./Formulario.html"><button>Agregar curso</button></a>
     </header>
     <!-- Inicio de implementacion de php para recibir datos sql que tengan igual id recibido -->
-<?php
-    include "conexion.php";
-    $id = $_GET['id'];
-    $sql = "SELECT id, nombre, imagen, precio, categoria, temporada, fechaIngreso, descripcion FROM basededatoslab4.producto WHERE id=$id";
-    $productos = $conn->query($sql);
-    foreach($productos as $producto){
-    }
-?>
+    <?php
+        include "conexion.php";
+        $id = $_GET['id'];
+        $sql = "SELECT id, nombre, imagen, precio, categoria, temporada, fechaIngreso, descripcion FROM basededatoslab4.producto WHERE id=$id";
+        $productos = $conn->query($sql);
+        foreach($productos as $producto){
+        }
+    ?>
     <!-- Uso de php para imprimir datos y remplazar datos sql -->
     <br><div class= center-h1> <h1 class="color-h1">Editando el curso</h1> </div> <br>
     <form action="actualizar.php" method="post" enctype='multipart/form-data'>
@@ -45,7 +44,7 @@
                     <?php } ?> 
                 </div> 
             <?php }else{ ?> 
-                <p class="status error">Image(s) not found...</p> 
+                <p class="status error">Imagen no encontrada..</p> 
             <?php } ?>
         <p>Cambiar imagen: <input type="file" name="imagen" accept="image/png, .jpeg, .jpg, image/gif"> </p>
         <p>Categoria:

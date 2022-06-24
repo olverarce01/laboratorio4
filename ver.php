@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="./css/vista.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos, css, bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/index.css">
+    <link Type="text/css" rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilos.css">
     <link rel="icon" href="favicon.ico">
     <!-- Titulo de la pagina -->
     <title>Class-lilac - Vista</title>
@@ -38,20 +38,8 @@
             <th>TEMPORADA</th>
             <th>FECHA</th>
             <th colspan="3">DESCRIPCION</th>
-            <!-- <th>IMAGEN</th> -->
         </tr>
     <?php
-
-    // foreach($productos as $producto){
-    //     echo " ID:". $producto["id"] . "<br>";
-    //     echo " Nombre del curso: " . $producto["nombre"] . "<br>";   
-    //     echo " Precio del curso: " . $producto["precio"] . "<br>";  
-    //     echo " Categoria: " . $producto["categoria"] . "<br>";  
-    //     echo " Temporada: " . $producto["temporada"] . "<br>";  
-    //     echo " Fecha de ingreso: " . $producto["fechaIngreso"] . "<br>";  
-    //     echo " Descripcion: " . $producto["descripcion"] . "<br>";   
-    // }
-
     // Implementacion imprimir sql
     foreach($productos as $producto){
         echo '
@@ -68,7 +56,6 @@
     }
     ?>
     </table>
-    <!-- <td>'.$producto["id"].'</td> -->
     <?php 
     // Conseguir imagen en la base de datos
     $result = $conn->query("SELECT imagen FROM basededatoslab4.producto WHERE id=$id"); 

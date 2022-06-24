@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos, css, bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/index.css">
+    <link Type="text/css" rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilos.css">
     <link rel="icon" href="favicon.ico">
     <!-- Titulo de la pagina -->
     <title>Class-lilac - Inicio</title>
@@ -26,7 +26,6 @@
     $productos = $conn->query($sql);
     echo ' <br><div class= center-h1> <h1 class="color-h1">Cursos de programación web</h1> </div> <br> ';
 ?>
-
 <!-- Tabla que contiene los registros actuales de la base de datos, sin incluir imagen y descripcion -->
 <table class="table table-stripedbg-info text-center w-75 mx-auto table-bordered border-last-right" cellspacing="0" cellpadding="0">
     <tr>
