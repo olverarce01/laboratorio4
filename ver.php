@@ -66,6 +66,7 @@
     <?php
         if($result->num_rows >0){
             echo ' <div class="gallery">';
+            echo ' <br><div class= center-h1> <h1 class="color-h1">Imagen (En caso de que tenga una)</h1> </div> <br> ';
             while($row = $result->fetch_assoc()){
                 if($row["imagen"]!="NULL"){
                     echo '<img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['imagen']).'" width="500px"/>'; 
